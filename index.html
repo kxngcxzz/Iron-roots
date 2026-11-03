@@ -1,0 +1,632 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Iron &amp; Roots — Online fitness membership</title>
+<meta name="description" content="Strong habits. Real results. Home workouts and budget meal guides, new every Monday. From £19/mo, cancel anytime.">
+<meta name="theme-color" content="#0F0F0E">
+<link rel="icon" href="brand/logo-mark-dark.svg" type="image/svg+xml">
+<link rel="preload" as="image" href="assets/coach-gym.jpg" fetchpriority="high">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Oswald:wght@500;600&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<script>if('IntersectionObserver' in window&&!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('js')</script>
+<style>
+:root{
+  --ink:#0F0F0E;          /* page ground */
+  --s1:#161615;           /* raised */
+  --s2:#1E1E1C;           /* cards */
+  --s3:#272724;           /* highlighted card / UI tiles */
+  --line:#2E2E2A;
+  --line-strong:#45443F;
+  --text:#F4F1EA;
+  --muted:#ABA69A;
+  --rust:#C8642E;
+  --rust-hover:#D8723A;
+  --rust-light:#E07A43;
+  --display:"Anton",Impact,"Arial Narrow",sans-serif;
+  --label:"Oswald","Arial Narrow",sans-serif;
+  --body:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --wrap:1240px;
+  --gutter:clamp(20px,5vw,56px);
+  --section:clamp(88px,11vw,152px);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ink);color:var(--text);font:400 16px/1.6 var(--body);-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+h1,h2,h3,p,ul,ol,figure,blockquote{margin:0}
+ul,ol{padding:0;list-style:none}
+:focus-visible{outline:3px solid var(--rust-light);outline-offset:3px}
+.skip{position:absolute;left:12px;top:-60px;z-index:100;background:var(--text);color:var(--ink);padding:10px 16px;font:600 14px var(--label);text-transform:uppercase;letter-spacing:.08em;text-decoration:none}
+.skip:focus{top:12px}
+
+.wrap{width:100%;max-width:calc(var(--wrap) + 2*var(--gutter));margin:0 auto;padding:0 var(--gutter)}
+.section{padding:var(--section) 0}
+.eyebrow{font:500 13px/1.2 var(--label);letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.eyebrow b{font-weight:500;color:var(--rust-light)}
+.h2{font:400 clamp(44px,8.4vw,104px)/.92 var(--display);text-transform:uppercase;letter-spacing:.005em}
+.lede{font-size:clamp(17px,1.5vw,19px);line-height:1.55;color:var(--muted);max-width:34em}
+.sec-head{display:grid;gap:22px;margin-bottom:clamp(48px,6vw,80px)}
+@media (min-width:900px){
+  .sec-head.split{grid-template-columns:1.3fr 1fr;align-items:end;gap:48px}
+}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:52px;padding:0 28px;border-radius:999px;font:600 15px/1 var(--label);letter-spacing:.1em;text-transform:uppercase;text-decoration:none;transition:background-color .2s,color .2s,border-color .2s}
+.btn-rust{background:var(--rust);color:var(--ink)}
+.btn-rust:hover{background:var(--rust-hover)}
+.btn-ghost{border:1.5px solid var(--line-strong);color:var(--text)}
+.btn-ghost:hover{border-color:var(--text)}
+.btn svg{flex:none;transition:transform .2s}
+.btn:hover svg{transform:translateX(3px)}
+.note{font-size:14px;color:var(--muted)}
+
+/* Visibility helpers */
+.only-wide{display:contents}.only-narrow{display:contents}
+@media (max-width:899px){.only-wide{display:none}}
+@media (min-width:900px){.only-narrow{display:none}}
+
+/* ---------- Header ---------- */
+.site-header{position:absolute;inset:0 0 auto;z-index:20}
+.site-header .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;height:76px}
+.logo{display:block;flex:none;line-height:0}
+.logo img{height:38px;width:auto}
+.nav{display:flex;align-items:center;gap:34px}
+.nav a{font:500 13px/1 var(--label);letter-spacing:.16em;text-transform:uppercase;text-decoration:none;color:var(--text);opacity:.82;padding:14px 0}
+.nav a:hover{opacity:1}
+.btn-sm{min-height:44px;padding:0 20px;font-size:13px}
+@media (min-width:900px){.site-header .wrap{height:96px}.logo img{height:46px}}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;min-height:max(640px,100svh);display:flex;align-items:flex-end;overflow:hidden;background:var(--ink)}
+.hero-media{position:absolute;inset:0;z-index:0}
+.hero-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%;filter:grayscale(1) contrast(1.15) brightness(.92)}
+/* .bw: optional black-and-white treatment for soft photos */
+.bw{filter:grayscale(1) contrast(1.12) brightness(.95)}
+/* film grain: masks soft source photos */
+.hero-media::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.22;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.hero-media::after{z-index:2}
+.hero-media::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,var(--ink) 4%,rgba(15,15,14,.9) 38%,rgba(15,15,14,.6) 54%,rgba(15,15,14,.15) 72%,rgba(15,15,14,.5) 100%)}
+.hero-body{position:relative;z-index:1;padding-top:140px;padding-bottom:120px}
+.hero h1{font:400 clamp(56px,15vw,200px)/.86 var(--display);text-transform:uppercase;letter-spacing:.004em;margin:20px 0 26px}
+.hero h1 span{display:block}
+.hero h1 .accent{color:var(--rust-light)}
+.hero .lede{color:#D6D1C6;max-width:30em}
+.hero-cta{display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px;margin-top:32px}
+@media (min-width:900px){
+  .hero{align-items:center}
+  .hero-media{left:38%}
+  .hero-media img{object-position:50% 26%}
+  .hero-media::after{background:linear-gradient(90deg,var(--ink) 0%,rgba(15,15,14,.7) 22%,rgba(15,15,14,0) 55%),linear-gradient(to top,var(--ink) 0%,rgba(15,15,14,0) 30%)}
+  .hero h1{font-size:clamp(88px,8.6vw,136px)}
+  .hero-body{padding-top:120px;padding-bottom:64px}
+}
+
+/* ---------- Facts strip ---------- */
+.facts{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--ink)}
+.facts ul{display:grid;grid-template-columns:1fr 1fr}
+.facts li{padding:28px 0 26px;display:grid;gap:6px;border-bottom:1px solid var(--line)}
+.facts li:nth-child(odd){padding-right:16px;border-right:1px solid var(--line)}
+.facts li:nth-child(even){padding-left:20px}
+.facts li:nth-last-child(-n+2){border-bottom:0}
+.facts strong{font:400 clamp(30px,4vw,48px)/1 var(--display);text-transform:uppercase;font-weight:400}
+.facts span{font-size:14px;line-height:1.4;color:var(--muted)}
+@media (min-width:900px){
+  .facts ul{grid-template-columns:repeat(4,1fr)}
+  .facts li{padding:40px 28px 38px!important;border-bottom:0;border-right:1px solid var(--line)}
+  .facts li:first-child{padding-left:0!important}
+  .facts li:last-child{border-right:0}
+}
+
+/* ---------- How it works ---------- */
+.steps{display:grid;gap:0;counter-reset:s}
+.step{display:grid;grid-template-columns:auto 1fr;gap:6px 22px;align-items:baseline;padding:30px 0;border-top:1px solid var(--line)}
+.step:last-child{border-bottom:1px solid var(--line)}
+.step-n{font:400 clamp(64px,9vw,128px)/.8 var(--display);color:transparent;-webkit-text-stroke:1.5px var(--line-strong);grid-row:span 2}
+.step h3{font:400 clamp(28px,3.2vw,40px)/1 var(--display);text-transform:uppercase}
+.step p{color:var(--muted);max-width:26em}
+@media (min-width:900px){
+  .steps{grid-template-columns:repeat(3,1fr);gap:0}
+  .step{grid-template-columns:1fr;padding:40px 40px 44px 0;border-bottom:1px solid var(--line);gap:14px}
+  .step+.step{padding-left:40px;border-left:1px solid var(--line)}
+  .step-n{grid-row:auto;margin-bottom:28px}
+}
+
+/* ---------- What's inside (bento) ---------- */
+.inside{background:var(--s1)}
+.bento{display:grid;gap:14px}
+.tile{position:relative;background:var(--s2);border:1px solid var(--line);border-radius:18px;padding:clamp(24px,2.6vw,36px);overflow:hidden;display:flex;flex-direction:column;gap:14px}
+.tile h3{font:400 clamp(26px,2.6vw,34px)/1.02 var(--display);text-transform:uppercase}
+.tile p{color:var(--muted);font-size:15.5px;line-height:1.55;max-width:30em}
+.tile .k{font:500 12px/1 var(--label);letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.tag{align-self:flex-start;border:1px solid var(--rust-light);color:var(--rust-light);border-radius:999px;padding:6px 12px;font:500 12px/1 var(--label);letter-spacing:.12em;text-transform:uppercase}
+
+.ui{background:var(--ink);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+.ui-head{display:flex;justify-content:space-between;gap:12px;padding-bottom:12px;margin-bottom:4px;border-bottom:1px solid var(--line);font:500 12px/1 var(--label);letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.week li{display:grid;grid-template-columns:44px 1fr auto;gap:12px;align-items:center;padding:11px 0;border-bottom:1px solid var(--line);font-size:15px}
+.week li:last-child{border-bottom:0}
+.week .d{font:600 13px/1 var(--label);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.week .m{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.week .rest{color:var(--muted)}
+.week .now .d{color:var(--rust-light)}
+.week .now{position:relative}
+.week .now::before{content:"";position:absolute;left:-18px;top:50%;width:6px;height:6px;margin-top:-3px;border-radius:50%;background:var(--rust-light)}
+.meals li{display:flex;justify-content:space-between;gap:16px;padding:10px 0;border-bottom:1px solid var(--line);font-size:15px}
+.meals li:last-child{border-bottom:0}
+.meals span:first-child{font:600 13px/1.6 var(--label);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.meals span:last-child{text-align:right}
+.chart svg{display:block;width:100%;height:auto}
+.chart text{font:500 10px var(--label);letter-spacing:.1em;fill:var(--muted)}
+
+.tile-photo{padding:0;min-height:460px;justify-content:flex-end;background:#2A2A26}
+.tile-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 18%}
+.ph{position:absolute;inset:0;display:grid;place-content:center;justify-items:center;gap:10px;text-align:center;padding:24px;color:var(--muted);font:500 12px/1.4 var(--label);letter-spacing:.16em;text-transform:uppercase;border:1.5px dashed var(--line-strong);border-radius:inherit;background:repeating-linear-gradient(135deg,transparent 0 14px,rgba(244,241,234,.03) 14px 15px)}
+.ph b{font:400 22px/1 var(--display);letter-spacing:.02em;color:var(--text)}
+.tile-photo .ph{bottom:auto;height:58%;border:0;border-bottom:1.5px dashed var(--line-strong);border-radius:0}
+.tile-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(15,15,14,.92),rgba(15,15,14,0) 48%)}
+.tile-photo .cap{position:relative;z-index:1;padding:clamp(24px,2.6vw,36px);display:grid;gap:8px}
+.tile-photo .cap p{color:#D6D1C6}
+
+.tile-band{gap:18px}
+.tile-band .band-main{display:grid;gap:14px;justify-items:start}
+.checkin{display:flex;flex-wrap:wrap;gap:10px}
+.checkin span{border:1px solid var(--line-strong);border-radius:999px;padding:9px 14px;font:500 13px/1 var(--label);letter-spacing:.1em;text-transform:uppercase;color:#D6D1C6}
+.bento-foot{margin-top:28px;font-size:15px;color:var(--muted)}
+
+@media (min-width:760px){
+  .bento{grid-template-columns:repeat(2,1fr)}
+  .t-week,.tile-band{grid-column:1/-1}
+}
+@media (min-width:1080px){
+  .bento{grid-template-columns:1fr 1fr 1fr;grid-template-areas:"week week photo" "meal prog photo" "band band band"}
+  .t-week{grid-area:week}.t-meal{grid-area:meal}.t-prog{grid-area:prog}.tile-photo{grid-area:photo;min-height:0}.tile-band{grid-area:band}
+  .t-week{display:grid;grid-template-columns:1fr 1.15fr;gap:36px;align-items:start}
+  .t-week .tile-text{display:flex;flex-direction:column;gap:14px;height:100%}
+  .tile-band{flex-direction:row;align-items:center;justify-content:space-between;gap:40px}
+  .tile-band .band-main{max-width:640px}
+}
+
+/* ---------- Why ---------- */
+.why{text-align:center}
+.why .eyebrow{margin-bottom:clamp(56px,7vw,96px)}
+.beliefs{display:grid;justify-items:center}
+.belief{display:grid;gap:18px;justify-items:center;max-width:860px}
+.belief .eyebrow{margin:0;color:var(--rust-light)}
+.belief .stmt{font:400 clamp(36px,5.6vw,72px)/.98 var(--display);text-transform:uppercase}
+.spine{width:1px;height:clamp(56px,8vw,96px);background:linear-gradient(var(--line-strong),var(--line-strong)) center/1px 100% no-repeat;margin:clamp(28px,3.5vw,44px) auto}
+
+/* ---------- About ---------- */
+.about{background:var(--s1)}
+.about-grid{display:grid;gap:44px}
+.about-photo{position:relative;max-width:440px;border-radius:18px;overflow:hidden;background:#2A2A26;aspect-ratio:4/5}
+.about-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 20%}
+.about-photo figcaption{position:absolute;left:14px;bottom:14px;background:var(--ink);color:var(--text);border-radius:999px;padding:8px 14px;font:500 12px/1 var(--label);letter-spacing:.14em;text-transform:uppercase}
+.about-text{display:grid;gap:22px;align-content:center}
+.about-text .role{font:600 14px/1 var(--label);letter-spacing:.14em;text-transform:uppercase;color:var(--rust-light)}
+.about-text .story{font-size:clamp(18px,1.7vw,21px);line-height:1.55;color:#D6D1C6;max-width:30em}
+.sig{font:500 15px var(--label);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding-top:22px;border-top:1px solid var(--line);max-width:30em}
+@media (min-width:900px){.about-grid{grid-template-columns:minmax(0,400px) 1fr;gap:clamp(56px,7vw,112px)}}
+
+/* ---------- Pricing ---------- */
+.plans{display:grid;gap:16px}
+.plan{position:relative;display:flex;flex-direction:column;gap:24px;background:var(--s2);border:1px solid var(--line);border-radius:20px;padding:clamp(28px,2.8vw,40px)}
+.plan-top{display:grid;gap:10px}
+.plan-name{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.plan h3{font:400 30px/1 var(--display);text-transform:uppercase;letter-spacing:.02em}
+.plan .for{color:var(--muted);font-size:15.5px;min-height:3.1em}
+.price{display:flex;align-items:baseline;gap:6px;padding:22px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.price strong{font:400 clamp(72px,7vw,96px)/.85 var(--display);font-weight:400}
+.price span{font:500 16px var(--label);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.plan ul{display:grid;gap:12px;flex:1}
+.plan li{display:flex;gap:12px;align-items:flex-start;font-size:15.5px}
+.plan li svg{flex:none;margin-top:5px}
+.plan .btn{width:100%}
+.plan.pop{background:var(--s3);border-color:var(--rust)}
+.pill{border-radius:999px;padding:7px 12px;font:600 12px/1 var(--label);letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
+.pill-rust{background:var(--rust);color:var(--ink)}
+.pill-line{border:1px solid var(--line-strong);color:#D6D1C6}
+.plans-note{margin-top:26px;text-align:center}
+@media (min-width:900px){.plans{grid-template-columns:repeat(3,1fr);align-items:stretch}.plan.pop{transform:translateY(-14px)}}
+
+/* ---------- Results ---------- */
+.results{background:var(--s1)}
+.quotes{display:grid;gap:14px}
+.quote{background:var(--text);color:var(--ink);border-radius:18px;padding:clamp(26px,2.6vw,36px);display:flex;flex-direction:column;gap:20px}
+.quote .res{font:400 30px/1 var(--display);text-transform:uppercase}
+.quote blockquote{font-size:16.5px;line-height:1.55;flex:1}
+.quote figcaption{display:flex;align-items:center;gap:12px;padding-top:18px;border-top:1px solid #D8D2C4}
+.avatar{width:44px;height:44px;border-radius:50%;background:#D8D2C4;flex:none}
+.quote figcaption b{display:block;font:600 15px/1.2 var(--label);letter-spacing:.06em;text-transform:uppercase}
+.quote figcaption span{font-size:13.5px;color:#55554F}
+.ba{margin-top:14px;display:grid;gap:14px;background:var(--s2);border:1px solid var(--line);border-radius:18px;padding:14px}
+.ba-pair{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.ba-frame{aspect-ratio:4/5;border:1.5px dashed var(--line-strong);border-radius:12px;display:flex;align-items:flex-end;padding:14px}
+.ba-frame span{font:500 12px/1 var(--label);letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.ba-text{display:grid;gap:10px;align-content:center;padding:12px 12px 16px}
+.ba-text h3{font:400 28px/1 var(--display);text-transform:uppercase}
+.ba-text p{color:var(--muted);font-size:15.5px}
+.ba-text small{font-size:13px;color:var(--muted)}
+@media (min-width:900px){
+  .quotes{grid-template-columns:repeat(3,1fr)}
+  .ba{grid-template-columns:minmax(0,520px) 1fr;gap:40px;padding:16px 40px 16px 16px}
+  .ba-frame{aspect-ratio:3/2}
+}
+
+/* ---------- FAQ ---------- */
+.faq-grid{display:grid;gap:40px}
+.faq-side{display:grid;gap:22px;align-content:start}
+.faq-side p{color:var(--muted)}
+.faq-side a{color:var(--text);text-underline-offset:4px}
+.qa{border-top:1px solid var(--line)}
+.qa:last-child{border-bottom:1px solid var(--line)}
+.qa summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;min-height:72px;padding:18px 0;font:500 clamp(17px,1.5vw,19px)/1.35 var(--body)}
+.qa summary::-webkit-details-marker{display:none}
+.qa .pm{position:relative;flex:none;width:36px;height:36px;border:1px solid var(--line-strong);border-radius:50%;transition:transform .25s,border-color .2s,background-color .2s}
+.qa .pm::before,.qa .pm::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:1.5px;margin:-.75px 0 0 -6px;background:var(--text)}
+.qa .pm::after{transform:rotate(90deg)}
+.qa[open] .pm{transform:rotate(45deg);border-color:var(--rust);background:var(--rust)}
+.qa[open] .pm::before,.qa[open] .pm::after{background:var(--ink)}
+.qa summary:hover .pm{border-color:var(--text)}
+.qa .a{padding:0 56px 26px 0;color:var(--muted);max-width:40em}
+@media (min-width:900px){.faq-grid{grid-template-columns:1fr 1.5fr;gap:80px}.faq-side{position:sticky;top:40px}}
+
+/* ---------- Final CTA ---------- */
+.final{text-align:center;border-top:1px solid var(--line);overflow:hidden}
+.final-mark{width:clamp(170px,20vw,240px);height:auto;margin:0 auto clamp(36px,4vw,52px)}
+.final h2{font:400 clamp(46px,8.4vw,120px)/.9 var(--display);text-transform:uppercase;max-width:11em;margin:0 auto}
+.final .lede{margin:26px auto 0;text-align:center}
+.final .hero-cta{justify-content:center;flex-direction:column;margin-top:38px}
+
+/* ---------- Footer ---------- */
+.footer{background:#0A0A09;border-top:1px solid var(--line);padding:clamp(56px,6vw,80px) 0 28px}
+.foot-grid{display:grid;gap:44px}
+.foot-brand{display:grid;gap:16px;align-content:start}
+.foot-brand img{height:44px;width:auto}
+.foot-brand p{font:500 13px var(--label);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.foot-cols{display:grid;grid-template-columns:1fr 1fr;gap:36px 24px}
+.foot-cols h3{font:500 12px/1 var(--label);letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+.foot-cols a{display:block;padding:7px 0;font-size:15px;text-decoration:none;color:#D6D1C6}
+.foot-cols a:hover{color:var(--text);text-decoration:underline;text-underline-offset:4px}
+.legal{margin-top:56px;padding-top:24px;border-top:1px solid var(--line);font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+@media (min-width:900px){.foot-grid{grid-template-columns:1.2fr 2fr}.foot-cols{grid-template-columns:repeat(4,1fr)}}
+.sticky-spacer{height:88px}
+
+/* ---------- Sticky join (phones) ---------- */
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:50;padding:12px 16px calc(12px + env(safe-area-inset-bottom));background:rgba(15,15,14,.96);border-top:1px solid var(--line)}
+.sticky .btn{width:100%}
+
+/* ---------- Motion (only when JS + motion allowed) ---------- */
+@media (prefers-reduced-motion:no-preference){
+  .hero-media img{animation:settle 1.6s cubic-bezier(.2,.7,.2,1) both}
+  .hero h1 span{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+  .hero h1 span+span{animation-delay:.08s}
+  @keyframes settle{from{transform:scale(1.06)}to{transform:none}}
+  @keyframes rise{from{opacity:0;transform:translateY(.25em)}to{opacity:1;transform:none}}
+}
+.js .rv{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.js .rv.in{opacity:1;transform:none}
+.js .rv-d1{transition-delay:.08s}.js .rv-d2{transition-delay:.16s}.js .rv-d3{transition-delay:.24s}
+@media (min-width:900px){.js .plan.pop.rv{transform:translateY(14px)}.js .plan.pop.rv.in{transform:translateY(-14px)}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Iron &amp; Roots home"><img src="brand/logo-horizontal-dark.svg" alt="Iron &amp; Roots" width="584" height="150"></a>
+    <div class="only-wide">
+      <nav class="nav" aria-label="Main">
+        <a href="#how">How it works</a>
+        <a href="#inside">What's inside</a>
+        <a href="#about">About</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+    </div>
+    <a class="btn btn-rust btn-sm" href="#pricing">Join now</a>
+  </div>
+</header>
+
+<main id="main">
+<!-- 1. HERO -->
+<section class="hero" id="top" aria-labelledby="hero-title">
+  <div class="hero-media">
+    <img src="assets/coach-gym.jpg" alt="Your coach in the gym" width="978" height="1560" fetchpriority="high">
+  </div>
+  <div class="wrap hero-body">
+    <p class="eyebrow">[ UK online fitness membership ]</p>
+    <h1 id="hero-title"><span>Strong habits.</span><span class="accent">Real results.</span></h1>
+    <p class="lede">Everything you need to get fit — without the confusion, without the expensive gym, without giving up.</p>
+    <div class="hero-cta">
+      <a class="btn btn-rust" href="#pricing">Join now — from £19/mo <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <p class="note">Cancel anytime, no lock-in</p>
+    </div>
+  </div>
+</section>
+
+<!-- Facts strip -->
+<section class="facts" aria-label="At a glance">
+  <div class="wrap">
+    <ul>
+      <li><strong>Mondays</strong><span>New workouts + meal guides every week</span></li>
+      <li><strong>Home</strong><span>Built for home with minimal kit</span></li>
+      <li><strong>£19/mo</strong><span>Starting price. Cancel anytime</span></li>
+      <li><strong>Any device</strong><span>Phone, laptop or tablet</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- 2. HOW IT WORKS -->
+<section class="section" id="how" aria-labelledby="how-title">
+  <div class="wrap">
+    <div class="sec-head split">
+      <div style="display:grid;gap:22px">
+        <p class="eyebrow">[ <b>01</b> — How it works ]</p>
+        <h2 class="h2 rv" id="how-title">Join. Train.<br>Progress.</h2>
+      </div>
+      <p class="lede rv rv-d1">Three steps, no guesswork. You always know what to do this week.</p>
+    </div>
+    <ol class="steps">
+      <li class="step rv"><span class="step-n" aria-hidden="true">01</span><h3>Pick your level</h3><p>Foundation, Builder or Elite.</p></li>
+      <li class="step rv rv-d1"><span class="step-n" aria-hidden="true">02</span><h3>Get your plan</h3><p>New workouts and meal guides drop every Monday.</p></li>
+      <li class="step rv rv-d2"><span class="step-n" aria-hidden="true">03</span><h3>Progress with support</h3><p>Track your wins, check in, keep going.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 3. WHAT'S INSIDE -->
+<section class="section inside" id="inside" aria-labelledby="inside-title">
+  <div class="wrap">
+    <div class="sec-head split">
+      <div style="display:grid;gap:22px">
+        <p class="eyebrow">[ <b>02</b> — What's inside ]</p>
+        <h2 class="h2 rv" id="inside-title">Everything<br>in one place</h2>
+      </div>
+      <p class="lede rv rv-d1">No juggling apps, PDFs and group chats. It all lives in your members' area.</p>
+    </div>
+
+    <div class="bento">
+      <article class="tile t-week rv">
+        <div class="tile-text">
+          <span class="k">Workouts</span>
+          <h3>Weekly workout programmes</h3>
+          <p>Follow-along video sessions, new every Monday. Built for home with minimal kit.</p>
+        </div>
+        <div class="ui" aria-label="Example of a training week">
+          <div class="ui-head"><span>Example week</span><span>Mon — Sun</span></div>
+          <ul class="week">
+            <li class="now"><span class="d">Mon</span><span>Full body</span><span class="m">Video</span></li>
+            <li><span class="d">Tue</span><span class="rest">Walk + stretch</span><span class="m"></span></li>
+            <li><span class="d">Wed</span><span>Lower body</span><span class="m">Video</span></li>
+            <li><span class="d">Thu</span><span class="rest">Rest</span><span class="m"></span></li>
+            <li><span class="d">Fri</span><span>Upper body</span><span class="m">Video</span></li>
+          </ul>
+        </div>
+      </article>
+
+      <figure class="tile tile-photo rv rv-d1">
+        <div class="ph" role="img" aria-label="Photo placeholder"><b>[Coaching photo]</b>Coach with a member or mid-session · portrait</div>
+        <figcaption class="cap">
+          <span class="k">Coaching</span>
+          <h3>Coached by<br>[Coach name]</h3>
+          <p>Honest, encouraging coaching. No gym-bro nonsense.</p>
+        </figcaption>
+      </figure>
+
+      <article class="tile t-meal rv">
+        <span class="k">Nutrition</span>
+        <h3>Meal guides + budget eating</h3>
+        <p>Simple, budget-friendly meals you'll actually cook. No crash diets.</p>
+        <div class="ui" aria-label="Example of a meal guide day">
+          <div class="ui-head"><span>Example day</span><span>Meal guide</span></div>
+          <ul class="meals">
+            <li><span>Breakfast</span><span>Overnight oats</span></li>
+            <li><span>Lunch</span><span>Chicken + rice bowl</span></li>
+            <li><span>Dinner</span><span>Batch-cook chilli</span></li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="tile t-prog rv rv-d1">
+        <span class="k">Progress</span>
+        <h3>Progress tracking</h3>
+        <p>Track your wins week by week and see how far you've come.</p>
+        <div class="ui chart">
+          <div class="ui-head"><span>Example chart</span><span>Weeks 1–8</span></div>
+          <svg viewBox="0 0 300 130" role="img" aria-label="Illustrative chart: a line rising steadily over eight weeks">
+            <g stroke="#2E2E2A" stroke-width="1"><path d="M0 20H300M0 55H300M0 90H300"/></g>
+            <path d="M8 104 L49 96 L90 98 L131 80 L172 72 L213 60 L254 44 L292 30" fill="none" stroke="#E07A43" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <g fill="#0F0F0E" stroke="#E07A43" stroke-width="2"><circle cx="8" cy="104" r="3.5"/><circle cx="131" cy="80" r="3.5"/><circle cx="292" cy="30" r="4.5" fill="#E07A43"/></g>
+            <text x="8" y="126">W1</text><text x="278" y="126">W8</text>
+          </svg>
+        </div>
+      </article>
+
+      <article class="tile tile-band rv">
+        <div class="band-main">
+          <span class="tag">Builder + Elite</span>
+          <h3>Community + accountability</h3>
+          <p>Check in, share wins and get a nudge when you need one.</p>
+        </div>
+        <div class="checkin" aria-hidden="true"><span>Weekly group check-in</span><span>Share wins</span><span>Ask questions</span></div>
+      </article>
+    </div>
+    <p class="bento-foot">All delivered in your members' area, on any device.</p>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="section why" aria-labelledby="why-title">
+  <div class="wrap">
+    <h2 class="eyebrow" id="why-title">[ Why Iron &amp; Roots ]</h2>
+    <div class="beliefs">
+      <div class="belief rv"><p class="eyebrow">[ Habits over hype ]</p><p class="stmt">Small, repeatable wins beat 30-day challenges.</p></div>
+      <span class="spine" aria-hidden="true"></span>
+      <div class="belief rv"><p class="eyebrow">[ Real food, real budget ]</p><p class="stmt">Meals you can afford, cook and actually enjoy.</p></div>
+      <span class="spine" aria-hidden="true"></span>
+      <div class="belief rv"><p class="eyebrow">[ Support, not shouting ]</p><p class="stmt">Honest, encouraging coaching.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. ABOUT -->
+<section class="section about" id="about" aria-labelledby="about-title">
+  <div class="wrap about-grid">
+    <figure class="about-photo rv">
+      <img src="assets/coach-park.jpg" alt="Your coach outdoors in a park" width="1290" height="1497" loading="lazy" decoding="async">
+      <figcaption>Founder</figcaption>
+    </figure>
+    <div class="about-text">
+      <p class="eyebrow">[ <b>03</b> — About ]</p>
+      <h2 class="h2 rv" id="about-title">Hi, I'm<br>[Coach name]</h2>
+      <p class="role">Founder of Iron &amp; Roots</p>
+      <p class="story rv">[Two or three lines on your story: why you started Iron &amp; Roots, who you help, and what you believe about getting fit.]</p>
+      <p class="sig">— [Coach name], founder</p>
+    </div>
+  </div>
+</section>
+
+<!-- 5. PRICING -->
+<section class="section" id="pricing" aria-labelledby="pricing-title">
+  <div class="wrap">
+    <div class="sec-head split">
+      <div style="display:grid;gap:22px">
+        <p class="eyebrow">[ <b>04</b> — Pricing ]</p>
+        <h2 class="h2 rv" id="pricing-title">Pick your<br>level</h2>
+      </div>
+      <p class="lede rv rv-d1">Every plan gets new workouts and meal guides every Monday.</p>
+    </div>
+    <div class="plans">
+      <article class="plan rv">
+        <div class="plan-top"><div class="plan-name"><h3>Foundation</h3></div><p class="for">Start here. Perfect if you're new.</p></div>
+        <div class="price"><strong>£19</strong><span>/mo</span></div>
+        <ul>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E07A43" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg>Weekly workouts</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E07A43" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg>Meal guides</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E07A43" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg>Full content library</li>
+        </ul>
+        <a class="btn btn-ghost" href="#checkout-foundation">Join Foundation</a>
+      </article>
+      <article class="plan pop rv rv-d1">
+        <div class="plan-top"><div class="plan-name"><h3>Builder</h3><span class="pill pill-rust">Most popular</span></div><p class="for">For people who want backup to stay consistent.</p></div>
+        <div class="price"><strong>£39</strong><span>/mo</span></div>
+        <ul>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E07A43" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg>Everything in Foundation</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E07A43" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg>Accountability community</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E07A43" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg>Weekly group check-ins</li>
+        </ul>
+        <a class="btn btn-rust" href="#checkout-builder">Join Builder</a>
+      </article>
+      <article class="plan rv rv-d2">
+        <div class="plan-top"><div class="plan-name"><h3>Elite</h3><span class="pill pill-line">Limited spots</span></div><p class="for">Maximum support, tailored to you.</p></div>
+        <div class="price"><strong>£89</strong><span>/mo</span></div>
+        <ul>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E07A43" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg>Everything in Builder</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E07A43" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg>1:1 check-ins</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E07A43" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg>Form reviews</li>
+        </ul>
+        <a class="btn btn-ghost" href="#checkout-elite">Join Elite</a>
+      </article>
+    </div>
+    <p class="note plans-note">Cancel anytime, no lock-in.</p>
+  </div>
+</section>
+
+<!-- 6. RESULTS -->
+<section class="section results" id="results" aria-labelledby="results-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">[ <b>05</b> — Members ]</p>
+      <h2 class="h2 rv" id="results-title">Real people.<br>Real results.</h2>
+    </div>
+    <div class="quotes">
+      <figure class="quote rv"><p class="res">[Headline result]</p><blockquote>“[One or two lines in the member's own words about what changed for them.]”</blockquote><figcaption><span class="avatar" aria-hidden="true"></span><div><b>[Member name]</b><span>[Town] · [Tier] member</span></div></figcaption></figure>
+      <figure class="quote rv rv-d1"><p class="res">[Headline result]</p><blockquote>“[One or two lines in the member's own words about what changed for them.]”</blockquote><figcaption><span class="avatar" aria-hidden="true"></span><div><b>[Member name]</b><span>[Town] · [Tier] member</span></div></figcaption></figure>
+      <figure class="quote rv rv-d2"><p class="res">[Headline result]</p><blockquote>“[One or two lines in the member's own words about what changed for them.]”</blockquote><figcaption><span class="avatar" aria-hidden="true"></span><div><b>[Member name]</b><span>[Town] · [Tier] member</span></div></figcaption></figure>
+    </div>
+    <div class="ba rv">
+      <div class="ba-pair"><div class="ba-frame"><span>Before</span></div><div class="ba-frame"><span>After</span></div></div>
+      <div class="ba-text">
+        <h3>[Member name] · [Timeframe]</h3>
+        <p>[One line on what they did: tier, how often they trained, what changed.]</p>
+        <small>Results vary. Stories and photos shared with members' permission.</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. FAQ -->
+<section class="section" id="faq" aria-labelledby="faq-title">
+  <div class="wrap faq-grid">
+    <div class="faq-side">
+      <p class="eyebrow">[ <b>06</b> — FAQ ]</p>
+      <h2 class="h2" id="faq-title">Questions,<br>answered</h2>
+      <p>Something else? Email <a href="#contact">[contact email]</a></p>
+    </div>
+    <div>
+      <details class="qa" name="faq" open><summary>Do I need a gym?<span class="pm" aria-hidden="true"></span></summary><p class="a">No. Workouts are built for home with minimal kit.</p></details>
+      <details class="qa" name="faq"><summary>I'm a complete beginner. Is this for me?<span class="pm" aria-hidden="true"></span></summary><p class="a">Yes. Start on Foundation and move up whenever you're ready.</p></details>
+      <details class="qa" name="faq"><summary>How does accountability work?<span class="pm" aria-hidden="true"></span></summary><p class="a">On Builder and Elite you join the members' community and a weekly group check-in: share your wins, ask questions and get a nudge when you need one. Elite adds 1:1 check-ins and form reviews.</p></details>
+      <details class="qa" name="faq"><summary>Can I switch tiers or cancel?<span class="pm" aria-hidden="true"></span></summary><p class="a">Yes, anytime. No lock-in, no awkward phone calls.</p></details>
+      <details class="qa" name="faq"><summary>Where do I access everything?<span class="pm" aria-hidden="true"></span></summary><p class="a">In the members' area, on any device: phone, laptop or tablet.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- 8. FINAL CTA -->
+<section class="section final" aria-labelledby="final-title">
+  <div class="wrap">
+    <img class="final-mark rv" src="brand/logo-lockup-dark.svg" alt="" width="150" height="182" loading="lazy">
+    <h2 id="final-title">Start building your roots today.</h2>
+    <p class="lede">Pick your level, get your plan, keep going. New workouts and meal guides every Monday.</p>
+    <div class="hero-cta">
+      <a class="btn btn-rust" href="#pricing">Join now — from £19/mo <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <p class="note">Cancel anytime, no lock-in</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- 9. FOOTER -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="logo" href="#top" aria-label="Iron &amp; Roots home"><img src="brand/logo-horizontal-dark.svg" alt="Iron &amp; Roots" width="584" height="150" loading="lazy"></a>
+        <p>Strong habits. Real results.</p>
+      </div>
+      <div class="foot-cols">
+        <div><h3>Membership</h3><a href="#how">How it works</a><a href="#inside">What's inside</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a></div>
+        <div><h3>Follow</h3><a href="#instagram">Instagram</a><a href="#facebook">Facebook</a><a href="#tiktok">TikTok</a></div>
+        <div><h3>Contact</h3><a id="contact" href="#contact">[contact email]</a></div>
+        <div><h3>Legal</h3><a href="#terms">Terms</a><a href="#privacy">Privacy</a></div>
+      </div>
+    </div>
+    <p class="legal"><span>© 2026 Iron &amp; Roots. All rights reserved.</span><span>UK online fitness membership</span></p>
+  </div>
+  <div class="only-narrow"><div class="sticky-spacer"></div></div>
+</footer>
+
+<!-- STICKY JOIN (phones only) -->
+<div class="only-narrow">
+  <div class="sticky"><a class="btn btn-rust" href="#pricing">Join now — from £19/mo</a></div>
+</div>
+
+<script>
+(function(){
+  var d=document.documentElement;
+  if(!d.classList.contains('js'))return;
+  var els=document.querySelectorAll('.rv');
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px',threshold:.08});
+  els.forEach(function(el){io.observe(el)});
+  // Safety: never leave anything hidden (e.g. print, anchor jumps, slow observers)
+  addEventListener('beforeprint',function(){els.forEach(function(el){el.classList.add('in')})});
+})();
+</script>
+</body>
+</html>

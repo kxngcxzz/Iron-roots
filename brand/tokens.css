@@ -1,0 +1,30 @@
+/* Iron & Roots brand tokens */
+:root {
+  /* Core palette */
+  --charcoal: #1C1C1A;   /* base, dark sections, text on light */
+  --forest: #2F4A3A;     /* primary, feature + testimonial sections */
+  --rust: #C8642E;       /* accent, CTA buttons */
+  --offwhite: #F4F1EA;   /* backgrounds, text on dark */
+
+  /* Accessible rust shades for small text */
+  --rust-ink: #A34D1F;   /* small rust text on off-white (5:1) */
+  --rust-light: #E07A43; /* small rust text on charcoal (5.7:1) */
+
+  /* Supporting neutrals */
+  --charcoal-deep: #141413; /* footer */
+  --muted-on-light: #55554F;
+  --muted-on-dark: #B9B4A8;
+  --line-on-light: #D8D2C4;
+  --line-on-dark: #34342F;
+
+  /* Type */
+  --font-display: "Anton", Impact, sans-serif;      /* headlines, uppercase */
+  --font-label: "Oswald", sans-serif;               /* labels, buttons, eyebrows */
+  --font-body: "Inter", system-ui, sans-serif;      /* body copy */
+  --font-display-manga: "Dela Gothic One", Impact, sans-serif; /* manga variation */
+  --font-brush-jp: "Yuji Boku", serif;              /* 鉄 / 根 characters, manga variation */
+
+  /* Shape */
+  --radius-button: 4px;
+  --radius-card: 6px;
+}
