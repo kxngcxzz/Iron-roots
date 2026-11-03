@@ -17,6 +17,8 @@ The next job is adding animations. The owner will describe the animations they w
 | `brand/logo-lockup-{light,dark}.svg` | D3 stacked lockup with IRON & ROOTS wordmark. |
 | `brand/logo-horizontal-{light,dark}.svg` | Mark + wordmark in a row (headers). All text is outlined; no fonts needed. |
 | `brand/tokens.css` | Colours, fonts, radii. |
+| `sitemap.xml` | Lists the main page for search engines. Update `<lastmod>` when the page changes. |
+| `robots.txt` | Allows everything except `light.html`; points to the sitemap. Only takes effect at a domain root (custom domain). |
 
 No build step. Open the HTML files directly or serve the folder (`npx serve .`).
 

@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /light.html
+
+Sitemap: https://kxngcxzz.github.io/Iron-roots/sitemap.xml
