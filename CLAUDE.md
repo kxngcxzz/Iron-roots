@@ -17,6 +17,8 @@ The next job is adding animations. The owner will describe the animations they w
 | `brand/logo-lockup-{light,dark}.svg` | D3 stacked lockup with IRON & ROOTS wordmark. |
 | `brand/logo-horizontal-{light,dark}.svg` | Mark + wordmark in a row (headers). All text is outlined; no fonts needed. |
 | `brand/tokens.css` | Colours, fonts, radii. |
+| `brand/favicon.svg`, `favicon-32.png`, `apple-touch-icon.png` | Browser-tab and home-screen icons (根 mark on charcoal). |
+| `assets/og-image.jpg` | 1200×630 share image used by the Open Graph / Twitter tags in `index.html`. Update it if prices or the tagline change. |
 | `sitemap.xml` | Lists the main page for search engines. Update `<lastmod>` when the page changes. |
 | `robots.txt` | Allows everything except `light.html`; points to the sitemap. Only takes effect at a domain root (custom domain). |
 
