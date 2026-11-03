@@ -1,6 +1,6 @@
 # Iron & Roots — landing page
 
-Iron & Roots is a UK online fitness membership. This repo holds its landing page. Most visitors arrive from Meta (Facebook/Instagram) ads on a phone, so **design and test mobile first** (390px wide), then desktop (1440px).
+Iron & Roots is an online fitness membership for a US and worldwide audience, sold through Whop. This repo holds its landing page. Most visitors arrive from ads (Meta: Facebook/Instagram, and Whop) on a phone, so **design and test mobile first** (390px wide), then desktop (1440px).
 
 The next job is adding animations. The owner will describe the animations they want; follow those. The ground rules at the bottom apply to whatever gets built.
 
@@ -26,7 +26,8 @@ No build step. Open the HTML files directly or serve the folder (`npx serve .`).
 
 - **Tagline:** Strong habits. Real results.
 - **Personality:** grounded, strong, no-nonsense, encouraging. Not flashy gym-bro, not soft wellness.
-- **Currency:** prices are shown in US dollars ($25 / $49 / $115 a month, converted from the original £19 / £39 / £89). Checkout must charge in USD to match.
+- **Currency:** US dollars ($25 / $49 / $115 a month), because the audience is US/worldwide and checkout runs on Whop in USD.
+- **Spelling:** US English on the page (programs, chili, etc.).
 - **Audience:** everyday people who want to get fit without an expensive gym, confusing programmes or crash diets.
 - **Colours:** charcoal `#1C1C1A` (base), forest `#2F4A3A` (primary), rust `#C8642E` (CTAs), off-white `#F4F1EA` (backgrounds). Small rust text uses `#A34D1F` on light and `#E07A43` on dark for contrast.
 - **Type:** Anton (headlines, uppercase), Oswald (labels, buttons), Inter (body).
@@ -38,11 +39,11 @@ No build step. Open the HTML files directly or serve the folder (`npx serve .`).
 2. **How it works** (`#how`) — 3 steps: Pick your level → Get your plan → Progress with support.
 3. **What's inside** (`#inside`) — 4 cards: workouts, meal guides, community (Builder + Elite only), progress tracking.
 4. **About** (`#about`) — two staggered coach photos (park in colour "Founder", gym in black and white "Training"), "Hi, I'm [Coach name]", story placeholder, 3 beliefs.
-5. **Pricing** (`#pricing`) — Foundation $25, Builder $49 (Most popular), Elite $115 (Limited spots). Each has its own Join button.
-6. **Member stories** (`#results`) — 3 testimonial cards + before/after strip (placeholders).
-7. **FAQ** (`#faq`, heading "Before you join") — 5-question accordion, first one open.
+5. **Pricing** (`#pricing`) — Foundation $25, Builder $49 ("Recommended"), Elite $115 ("Limited spots": only keep if spots really are capped). Each has its own Join button, which will link to its Whop product.
+6. **Member stories** (`#results`) — 3 testimonial cards + before/after strip. **Hidden** (`hidden` attribute) until real stories with permission arrive; when shown again, renumber FAQ to 06.
+7. **FAQ** (`#faq`, label 05 while Results is hidden, heading "Before you join") — 5-question accordion, first one open.
 8. **Final CTA** — logo, "Start building your roots today.", short line, "Cancel anytime, no lock-in" (no button; the sticky Join covers it).
-9. **Footer** — logo, socials, contact, Terms, Privacy.
+9. **Footer** — logo, tagline, one line explaining 根 (*ne*) = roots, socials, contact, Terms, Privacy.
 10. **Sticky Join** — the one general Join button, on every screen size: full-width bar on phones, floating pill bottom-centre on desktop. The only other Join buttons are the three plan buttons in Pricing. Don't add more.
 
 `light.html` follows the same order.
@@ -68,8 +69,8 @@ No build step. Open the HTML files directly or serve the folder (`npx serve .`).
 
 ## Placeholders still to fill (don't invent these)
 
-- Checkout links: `#checkout-foundation`, `#checkout-builder`, `#checkout-elite` → real checkout URLs from the client.
-- Coach name and story in About; contact email; social profile URLs (`#instagram`, `#facebook`, `#tiktok`); Terms and Privacy pages.
+- Checkout links: `#checkout-foundation`, `#checkout-builder`, `#checkout-elite` → the client's Whop product URLs.
+- Coach name and story in About; contact email; social profile URLs (`#instagram`, `#facebook`, `#tiktok`); Terms and Privacy pages (should match Whop's cancellation and refund handling).
 - Testimonials and before/after: bracketed placeholders until real member stories with permission arrive. Never write fake testimonials or results.
 
 ## Ground rules for animation work
@@ -78,6 +79,7 @@ No build step. Open the HTML files directly or serve the folder (`npx serve .`).
 - **Respect `prefers-reduced-motion`.** Every animation needs a reduced-motion fallback (no motion, content fully visible).
 - **Never hide content behind animation.** If JS fails or is slow, all text, prices and Join buttons must still be visible and clickable. The CTA and the sticky Join bar must never be delayed or obscured.
 - **Don't move the layout around** (no layout shift that pushes the Join button as it loads).
+- **No unverified claims:** badges like "Most popular" or "Limited spots" only when true.
 - **Keep it on-brand:** strong and grounded, not flashy. Keep the existing colours, fonts and copy unless asked.
 - **References are for feel only.** Never copy another brand's copy, photos, names or logos.
 - Keep both pages working at 390px and 1440px; check both after each change.
