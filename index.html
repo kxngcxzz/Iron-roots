@@ -310,6 +310,8 @@ ul,ol{padding:0;list-style:none}
 .foot-grid{display:grid;gap:44px}
 .foot-brand{display:grid;gap:16px;align-content:start}
 .foot-brand img{height:44px;width:auto}
+.foot-brand .foot-ne{font:400 14px/1.5 var(--body);letter-spacing:0;text-transform:none;color:var(--muted);max-width:26em}
+.foot-brand .foot-ne span{color:var(--text)}
 .foot-brand p{font:500 13px var(--label);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
 .foot-cols{display:grid;grid-template-columns:1fr 1fr;gap:36px 24px}
 .foot-cols h3{font:500 12px/1 var(--label);letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
@@ -447,7 +449,7 @@ ul,ol{padding:0;list-style:none}
       <article class="tile t-week rv">
         <div class="tile-text">
           <span class="k">Workouts</span>
-          <h3>Weekly workout programmes</h3>
+          <h3>Weekly workout programs</h3>
           <p>Follow-along video sessions, new every Monday. Built for home with minimal kit.</p>
         </div>
         <div class="ui" aria-label="Example of a training week">
@@ -572,7 +574,7 @@ ul,ol{padding:0;list-style:none}
         <a class="btn btn-ghost" href="#checkout-foundation">Join Foundation</a>
       </article>
       <article class="plan pop rv rv-d1">
-        <div class="plan-top"><div class="plan-name"><h3>Builder</h3><span class="pill pill-rust">Most popular</span></div><p class="for">For people who want backup to stay consistent.</p></div>
+        <div class="plan-top"><div class="plan-name"><h3>Builder</h3><span class="pill pill-rust">Recommended</span></div><p class="for">For people who want backup to stay consistent.</p></div>
         <div class="price"><strong>$49</strong><span>/mo</span></div>
         <ul>
           <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E07A43" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg>Everything in Foundation</li>
@@ -597,7 +599,8 @@ ul,ol{padding:0;list-style:none}
 </section>
 
 <!-- 6. RESULTS -->
-<section class="section results" id="results" aria-labelledby="results-title">
+<!-- Hidden until real member stories (with permission) are ready: remove the hidden attribute and renumber FAQ back to 06. -->
+<section class="section results" id="results" aria-labelledby="results-title" hidden>
   <div class="wrap">
     <div class="sec-head">
       <p class="eyebrow"><b>05</b> / Results</p>
@@ -623,7 +626,7 @@ ul,ol{padding:0;list-style:none}
 <section class="section" id="faq" aria-labelledby="faq-title">
   <div class="wrap faq-grid">
     <div class="faq-side">
-      <p class="eyebrow"><b>06</b> / FAQ</p>
+      <p class="eyebrow"><b>05</b> / FAQ</p>
       <h2 class="h2" id="faq-title">Before<br>you join</h2>
       <p>Something else? Email <a href="#contact">[contact email]</a></p>
     </div>
@@ -655,6 +658,7 @@ ul,ol{padding:0;list-style:none}
       <div class="foot-brand">
         <a class="logo" href="#top" aria-label="Iron &amp; Roots home"><img src="brand/logo-horizontal-dark.svg" alt="Iron &amp; Roots" width="584" height="150" loading="lazy"></a>
         <p>Strong habits. Real results.</p>
+        <p class="foot-ne"><span lang="ja">根</span> (<i>ne</i>) means roots. Iron is the work. Roots are the habits that hold it up.</p>
       </div>
       <div class="foot-cols">
         <div><h3>Membership</h3><a href="#how">How it works</a><a href="#inside">What's inside</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a></div>
