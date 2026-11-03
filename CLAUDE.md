@@ -34,16 +34,16 @@ No build step. Open the HTML files directly or serve the folder (`npx serve .`).
 
 ## Page structure (`index.html`, top to bottom)
 
-1. **Hero** — header (inline SVG logo; desktop nav), big "Strong habits. Real results." headline, short body line, `Join now · from $25/mo` button, "Cancel anytime, no lock-in", coach photo.
+1. **Hero** — header (logo centred; on desktop the nav is split either side: How it works / What's inside / About on the left, Pricing / FAQ on the right), big "Strong habits. Real results." headline, short body line, "Cancel anytime, no lock-in", coach photo. No button in the hero: the sticky Join is the call to action.
 2. **How it works** (`#how`) — 3 steps: Pick your level → Get your plan → Progress with support.
 3. **What's inside** (`#inside`) — 4 cards: workouts, meal guides, community (Builder + Elite only), progress tracking.
 4. **About** (`#about`) — two staggered coach photos (park in colour "Founder", gym in black and white "Training"), "Hi, I'm [Coach name]", story placeholder, 3 beliefs.
 5. **Pricing** (`#pricing`) — Foundation $25, Builder $49 (Most popular), Elite $115 (Limited spots). Each has its own Join button.
 6. **Member stories** (`#results`) — 3 testimonial cards + before/after strip (placeholders).
 7. **FAQ** (`#faq`, heading "Before you join") — 5-question accordion, first one open.
-8. **Final CTA** — "Start building your roots today." + Join button.
+8. **Final CTA** — logo, "Start building your roots today.", short line, "Cancel anytime, no lock-in" (no button; the sticky Join covers it).
 9. **Footer** — logo, socials, contact, Terms, Privacy.
-10. **Sticky Join bar** — phones only (`.only-narrow`, hidden ≥ 900px).
+10. **Sticky Join** — the one general Join button, on every screen size: full-width bar on phones, floating pill bottom-centre on desktop. The only other Join buttons are the three plan buttons in Pricing. Don't add more.
 
 `light.html` follows the same order.
 
@@ -58,7 +58,7 @@ No build step. Open the HTML files directly or serve the folder (`npx serve .`).
 
 ### Responsive helpers
 
-- `.only-wide` shows at ≥ 900px (desktop nav); `.only-narrow` shows below 900px (sticky bar and its footer spacer).
+- `.only-wide` shows at ≥ 900px (desktop nav); `.only-narrow` shows below 900px.
 - Layout is mostly intrinsic (flex-wrap, `auto-fit` grids, `clamp()` type), so few media queries are needed.
 
 ## Copy style
