@@ -27,7 +27,7 @@ No build step. Open the HTML files directly or serve the folder (`npx serve .`).
 - **Tagline:** Strong habits. Real results.
 - **Personality:** grounded, strong, no-nonsense, encouraging. Not flashy gym-bro, not soft wellness.
 - **Currency:** US dollars ($25 / $49 / $115 a month), because the audience is US/worldwide and checkout runs on Whop in USD.
-- **Spelling:** US English on the page (programs, chili, etc.).
+- **Spelling:** US English on the page (programs, etc.). Exception: "chilli" in the example meal plan stays as the owner wrote it..
 - **Audience:** everyday people who want to get fit without an expensive gym, confusing programmes or crash diets.
 - **Colours:** charcoal `#1C1C1A` (base), forest `#2F4A3A` (primary), rust `#C8642E` (CTAs), off-white `#F4F1EA` (backgrounds). Small rust text uses `#A34D1F` on light and `#E07A43` on dark for contrast.
 - **Type:** Anton (headlines, uppercase), Oswald (labels, buttons), Inter (body).
