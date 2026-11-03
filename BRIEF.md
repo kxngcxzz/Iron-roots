@@ -15,7 +15,7 @@ Both: single self-contained HTML file, inline `<style>`, tiny vanilla JS only. N
 - **David Kingsbury** — split hero (photo left, headline + CTA right on white), a row of coloured pillar cards with icons and small buttons, about section where a text card overlaps a big photo, testimonials as solid dark blocks.
 
 ## Content (from the existing index.html — keep copy, prices, sections)
-Hero, How it works (3 steps), What's inside (4 items), About (coach placeholder), Pricing (Foundation £19 / Builder £39 Most popular / Elite £89 Limited spots, each own checkout link), Results/testimonials (placeholders), FAQ (5, first open), Final CTA, Footer, sticky Join bar on phones (<900px).
+Hero, How it works (3 steps), What's inside (4 items), About (coach placeholder), Pricing (Foundation $25 / Builder $49 Most popular / Elite $115 Limited spots, each own checkout link), Results/testimonials (placeholders), FAQ (5, first open), Final CTA, Footer, sticky Join bar on phones (<900px).
 
 ## Hard rules (from CLAUDE.md)
 - Mobile first at 390px, then 1440px. Phone ad traffic on mobile data → keep it light; photos `loading="lazy"` except hero; width/height attrs to stop layout shift.

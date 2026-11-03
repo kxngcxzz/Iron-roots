@@ -24,6 +24,7 @@ No build step. Open the HTML files directly or serve the folder (`npx serve .`).
 
 - **Tagline:** Strong habits. Real results.
 - **Personality:** grounded, strong, no-nonsense, encouraging. Not flashy gym-bro, not soft wellness.
+- **Currency:** prices are shown in US dollars ($25 / $49 / $115 a month, converted from the original £19 / £39 / £89). Checkout must charge in USD to match.
 - **Audience:** everyday people who want to get fit without an expensive gym, confusing programmes or crash diets.
 - **Colours:** charcoal `#1C1C1A` (base), forest `#2F4A3A` (primary), rust `#C8642E` (CTAs), off-white `#F4F1EA` (backgrounds). Small rust text uses `#A34D1F` on light and `#E07A43` on dark for contrast.
 - **Type:** Anton (headlines, uppercase), Oswald (labels, buttons), Inter (body).
@@ -31,11 +32,11 @@ No build step. Open the HTML files directly or serve the folder (`npx serve .`).
 
 ## Page structure (`index.html`, top to bottom)
 
-1. **Hero** — header (inline SVG logo; desktop nav), big "Strong habits. Real results." headline, tagline, body, 4 benefits, `Join Now — From £19/mo` button, "Cancel anytime, no lock-in", coach photo.
+1. **Hero** — header (inline SVG logo; desktop nav), big "Strong habits. Real results." headline, tagline, body, 4 benefits, `Join Now — From $25/mo` button, "Cancel anytime, no lock-in", coach photo.
 2. **How it works** (`#how`) — 3 steps: Pick your level → Get your plan → Progress with support.
 3. **What's inside** (`#inside`) — 4 cards: workouts, meal guides, community (Builder + Elite only), progress tracking.
 4. **About** (`#about`) — two staggered coach photos (park in colour "Founder", gym in black and white "Training"), "Hi, I'm [Coach name]", story placeholder, 3 beliefs.
-5. **Pricing** (`#pricing`) — Foundation £19, Builder £39 (Most popular), Elite £89 (Limited spots). Each has its own Join button.
+5. **Pricing** (`#pricing`) — Foundation $25, Builder $49 (Most popular), Elite $115 (Limited spots). Each has its own Join button.
 6. **Social proof** (`#results`) — 3 testimonial cards + before/after strip (placeholders).
 7. **FAQ** (`#faq`) — 5-question accordion, first one open.
 8. **Final CTA** — "Start building your roots today." + Join button.
