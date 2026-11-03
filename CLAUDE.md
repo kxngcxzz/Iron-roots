@@ -32,13 +32,13 @@ No build step. Open the HTML files directly or serve the folder (`npx serve .`).
 
 ## Page structure (`index.html`, top to bottom)
 
-1. **Hero** — header (inline SVG logo; desktop nav), big "Strong habits. Real results." headline, tagline, body, 4 benefits, `Join Now — From $25/mo` button, "Cancel anytime, no lock-in", coach photo.
+1. **Hero** — header (inline SVG logo; desktop nav), big "Strong habits. Real results." headline, short body line, `Join now · from $25/mo` button, "Cancel anytime, no lock-in", coach photo.
 2. **How it works** (`#how`) — 3 steps: Pick your level → Get your plan → Progress with support.
 3. **What's inside** (`#inside`) — 4 cards: workouts, meal guides, community (Builder + Elite only), progress tracking.
 4. **About** (`#about`) — two staggered coach photos (park in colour "Founder", gym in black and white "Training"), "Hi, I'm [Coach name]", story placeholder, 3 beliefs.
 5. **Pricing** (`#pricing`) — Foundation $25, Builder $49 (Most popular), Elite $115 (Limited spots). Each has its own Join button.
-6. **Social proof** (`#results`) — 3 testimonial cards + before/after strip (placeholders).
-7. **FAQ** (`#faq`) — 5-question accordion, first one open.
+6. **Member stories** (`#results`) — 3 testimonial cards + before/after strip (placeholders).
+7. **FAQ** (`#faq`, heading "Before you join") — 5-question accordion, first one open.
 8. **Final CTA** — "Start building your roots today." + Join button.
 9. **Footer** — logo, socials, contact, Terms, Privacy.
 10. **Sticky Join bar** — phones only (`.only-narrow`, hidden ≥ 900px).
@@ -58,6 +58,11 @@ No build step. Open the HTML files directly or serve the folder (`npx serve .`).
 
 - `.only-wide` shows at ≥ 900px (desktop nav); `.only-narrow` shows below 900px (sticky bar and its footer spacer).
 - Layout is mostly intrinsic (flex-wrap, `auto-fit` grids, `clamp()` type), so few media queries are needed.
+
+## Copy style
+
+- Plain and specific. No rule-of-three filler, no stock headings ("Questions, answered", "Real people. Real results."), no em dashes in body copy or buttons.
+- Section labels are plain (`01 / How it works`). Square brackets are reserved for real placeholders like `[Coach name]` so they are easy to spot.
 
 ## Placeholders still to fill (don't invent these)
 
