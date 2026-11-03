@@ -31,7 +31,7 @@ No build step. Open the HTML files directly or serve the folder (`npx serve .`).
 
 ## Page structure (`index.html`, top to bottom)
 
-1. **Hero** — header (logo; desktop nav), "UK online fitness membership" eyebrow, big IRON & ROOTS headline, tagline, body, 4 benefits, `Join Now — From £19/mo` button, "Cancel anytime, no lock-in", coach photo.
+1. **Hero** — header (inline SVG logo; desktop nav), big "Strong habits. Real results." headline, tagline, body, 4 benefits, `Join Now — From £19/mo` button, "Cancel anytime, no lock-in", coach photo.
 2. **How it works** (`#how`) — 3 steps: Pick your level → Get your plan → Progress with support.
 3. **What's inside** (`#inside`) — 4 cards: workouts, meal guides, community (Builder + Elite only), progress tracking.
 4. **About** (`#about`) — two staggered coach photos (park in colour "Founder", gym in black and white "Training"), "Hi, I'm [Coach name]", story placeholder, 3 beliefs.
@@ -43,6 +43,15 @@ No build step. Open the HTML files directly or serve the folder (`npx serve .`).
 10. **Sticky Join bar** — phones only (`.only-narrow`, hidden ≥ 900px).
 
 `light.html` follows the same order.
+
+### Animations in place
+
+- Hero photo eases in and headline lines rise on load; sections fade up on scroll (`.rv` → `.in` via IntersectionObserver).
+- Header logo: the barbell (`.lift` group in the inline SVG) drops onto the 根 once on load.
+- How it works: outlined step numbers fill in one by one (`.step-n::after`).
+- What's inside: the example chart line draws left to right (clip rect `.draw` scales open).
+- Pricing: Builder card glows once and its "Most popular" badge pops in.
+- All of it only runs when `html.js` is set (JS on and reduced motion off); otherwise the page shows the finished state.
 
 ### Responsive helpers
 
