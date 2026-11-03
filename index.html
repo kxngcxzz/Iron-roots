@@ -208,7 +208,12 @@ ul,ol{padding:0;list-style:none}
 .about-text .role{font:600 14px/1 var(--label);letter-spacing:.14em;text-transform:uppercase;color:var(--rust-light)}
 .about-text .story{font-size:clamp(18px,1.7vw,21px);line-height:1.55;color:#D6D1C6;max-width:30em}
 .sig{font:500 15px var(--label);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding-top:22px;border-top:1px solid var(--line);max-width:30em}
-@media (min-width:900px){.about-grid{grid-template-columns:minmax(0,400px) 1fr;gap:clamp(56px,7vw,112px)}}
+/* two coach photos, staggered */
+.about-photos{display:grid;grid-template-columns:1.25fr 1fr;gap:12px;align-items:start;max-width:560px}
+.about-photos .about-photo{max-width:none}
+.ap-side{margin-top:clamp(40px,8vw,72px);aspect-ratio:3/4.4}
+.ap-side img{object-position:50% 30%}
+@media (min-width:900px){.about-grid{grid-template-columns:minmax(0,520px) 1fr;gap:clamp(56px,7vw,112px)}}
 
 /* ---------- Pricing ---------- */
 .plans{display:grid;gap:16px}
@@ -477,10 +482,16 @@ ul,ol{padding:0;list-style:none}
 <!-- 4. ABOUT -->
 <section class="section about" id="about" aria-labelledby="about-title">
   <div class="wrap about-grid">
-    <figure class="about-photo rv">
-      <img src="assets/coach-park.jpg" alt="Your coach outdoors in a park" width="1200" height="1393" loading="lazy" decoding="async">
-      <figcaption>Founder</figcaption>
-    </figure>
+    <div class="about-photos">
+      <figure class="about-photo ap-main rv">
+        <img src="assets/coach-park.jpg" alt="Your coach outdoors in a park" width="1200" height="1393" loading="lazy" decoding="async">
+        <figcaption>Founder</figcaption>
+      </figure>
+      <figure class="about-photo ap-side rv rv-d1">
+        <img class="bw" src="assets/coach-gym.jpg" alt="Your coach training in the gym" width="978" height="1560" loading="lazy" decoding="async">
+        <figcaption>Training</figcaption>
+      </figure>
+    </div>
     <div class="about-text">
       <p class="eyebrow">[ <b>03</b> — About ]</p>
       <h2 class="h2 rv" id="about-title">Hi, I'm<br>[Coach name]</h2>

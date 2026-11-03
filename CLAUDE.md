@@ -12,7 +12,7 @@ The next job is adding animations. The owner will describe the animations they w
 | `light.html` | Alternative variation in the brand palette (off-white / forest / rust). Same copy, sections and prices. |
 | `BRIEF.md` | Design brief for the two variations (references, rules, what to avoid). |
 | `assets/coach-park.jpg` | Coach photo, outdoors (About intro, in colour). |
-| `assets/coach-gym.jpg` | Coach photo, gym mirror shot (hero, shown black and white with grain). Low-res; will be replaced. |
+| `assets/coach-gym.jpg` | Coach photo, gym mirror shot (hero, and the "Training" photo in About; always shown black and white). Low-res; will be replaced. |
 | `brand/logo-mark-{light,dark}.svg` | D3 logo mark (barbell over brush 根), square. `dark` = for dark backgrounds. |
 | `brand/logo-lockup-{light,dark}.svg` | D3 stacked lockup with IRON & ROOTS wordmark. |
 | `brand/logo-horizontal-{light,dark}.svg` | Mark + wordmark in a row (headers). All text is outlined; no fonts needed. |
@@ -34,7 +34,7 @@ No build step. Open the HTML files directly or serve the folder (`npx serve .`).
 1. **Hero** — header (logo; desktop nav), "UK online fitness membership" eyebrow, big IRON & ROOTS headline, tagline, body, 4 benefits, `Join Now — From £19/mo` button, "Cancel anytime, no lock-in", coach photo.
 2. **How it works** (`#how`) — 3 steps: Pick your level → Get your plan → Progress with support.
 3. **What's inside** (`#inside`) — 4 cards: workouts, meal guides, community (Builder + Elite only), progress tracking.
-4. **About** (`#about`) — coach photo, "Hi, I'm [Coach name]", story placeholder, 3 beliefs.
+4. **About** (`#about`) — two staggered coach photos (park in colour "Founder", gym in black and white "Training"), "Hi, I'm [Coach name]", story placeholder, 3 beliefs.
 5. **Pricing** (`#pricing`) — Foundation £19, Builder £39 (Most popular), Elite £89 (Limited spots). Each has its own Join button.
 6. **Social proof** (`#results`) — 3 testimonial cards + before/after strip (placeholders).
 7. **FAQ** (`#faq`) — 5-question accordion, first one open.
